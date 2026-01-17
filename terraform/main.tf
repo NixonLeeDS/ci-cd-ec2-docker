@@ -13,9 +13,10 @@ provider "aws" {
 
 resource "aws_security_group" "app_sg" {
   name        = "devops-app-sg"
-  description = "Security group for devops app"
+  description = "Security group for CI/CD demo app"
 
   ingress {
+    description = "SSH"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -23,6 +24,7 @@ resource "aws_security_group" "app_sg" {
   }
 
   ingress {
+    description = "App port"
     from_port   = 5000
     to_port     = 5000
     protocol    = "tcp"
@@ -34,6 +36,10 @@ resource "aws_security_group" "app_sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "devops-app-sg"
   }
 }
 
