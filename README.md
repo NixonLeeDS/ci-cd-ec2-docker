@@ -76,28 +76,3 @@ docker run -p 5000:5000 devops-demo
 ```
 
 ---
-
-## Why This Project
-
-This project focuses on core DevOps fundamentals:
-
-* CI/CD automation
-* Containerised deployments
-* Cloud deployment basics
-* Real pipeline debugging and fixes
-
----
-
-### This version does three important things
-
-* Looks realistic, not overengineered
-* Matches intern-level expectations
-* Is easy to explain in interviews
-
-If you want, next I can:
-
-* Shrink this even more for **GitHub front page**
-* Rewrite it as **resume bullet points**
-* Prepare **interview explanations** based on this repo
-
-Just say which one.
