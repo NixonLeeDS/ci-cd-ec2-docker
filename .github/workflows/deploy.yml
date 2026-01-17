@@ -19,9 +19,10 @@ jobs:
 
       - name: Build and push image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-demo:${{ github.sha }} .
-          docker tag ${{ secrets.DOCKER_USERNAME }}/devops-demo:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/devops-demo:latest
-          docker push --all-tags
+            docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-demo:${{ github.sha }} .
+            docker tag ${{ secrets.DOCKER_USERNAME }}/devops-demo:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/devops-demo:latest
+            docker push ${{ secrets.DOCKER_USERNAME }}/devops-demo:${{ github.sha }}
+            docker push ${{ secrets.DOCKER_USERNAME }}/devops-demo:latest
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1
