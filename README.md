@@ -1,78 +1,25 @@
-
-
-# CI/CD Pipeline with GitHub Actions and AWS EC2
+# CI/CD Pipeline to AWS EC2
 
 ## Overview
+This project implements a simple CI/CD pipeline that automatically builds and deploys a containerised web application to an AWS EC2 instance.
 
-This project implements a simple CI/CD pipeline that automatically builds and deploys a containerised web application to an AWS EC2 instance using GitHub Actions and Docker.
-
-Every push to the `main` branch triggers an automated deployment with no manual steps.
+Every push to the `main` branch triggers GitHub Actions to run both continuous integration and continuous deployment, ensuring the latest version of the application is built, packaged, and deployed without manual steps.
 
 ---
 
 ## Pipeline Flow
+- Code push triggers GitHub Actions
+- Docker image is built and pushed to a registry
+- EC2 pulls the latest image
+- Existing container is replaced
+- Application health is validated after deployment
 
-```
-GitHub → GitHub Actions → Docker Build → Docker Hub → AWS EC2
-```
+This setup demonstrates core DevOps fundamentals such as CI/CD automation, containerisation, and cloud-based deployment.
 
 ---
 
 ## Tech Stack
-
-* GitHub Actions
-* Docker
-* AWS EC2 (Amazon Linux)
-* Python Flask
-
----
-
-## How It Works
-
-1. Code is pushed to the `main` branch
-2. GitHub Actions builds a Docker image
-3. Image is pushed to Docker Hub
-4. EC2 pulls the latest image
-5. Existing container is replaced automatically
-
----
-
-## Health Check
-
-* The application exposes a `/health` endpoint
-* The deployment verifies the service is running after startup
-* Deployment fails if the application is unhealthy
-
----
-
-## Security
-
-* SSH key-based authentication
-* Secrets stored using GitHub Actions Secrets
-* No credentials hardcoded in the repository
-
----
-
-## Limitations
-
-* Single EC2 instance
-* No autoscaling or load balancing
-
----
-
-## Future Improvements
-
-* Infrastructure as Code with Terraform
-* Deployment to AWS ECS
-* Blue-green deployments
-
----
-
-## Run Locally
-
-```bash
-docker build -t devops-demo .
-docker run -p 5000:5000 devops-demo
-```
-
----
+- **CI/CD**: GitHub Actions  
+- **Containerisation**: Docker  
+- **Cloud**: AWS EC2 (Amazon Linux)  
+- **Application**: Python Flask  
