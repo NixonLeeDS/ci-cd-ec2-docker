@@ -1,10 +1,4 @@
-Good instinct. For a **basic but real DevOps project**, simpler actually looks **more honest and stronger**. Overexplaining makes it look fake.
 
-Below is a **clean, minimal, recruiter-friendly README**. This is the right level for an intern / junior project.
-
-You can copy this directly.
-
----
 
 # CI/CD Pipeline with GitHub Actions and AWS EC2
 
