@@ -1,6 +1,19 @@
 from flask import Flask
+import os
+
+
 
 app = Flask(__name__)
+
+
+
+@app.route("/version")
+def version():
+    return {
+        "version": os.getenv("APP_VERSION", "unknown")
+    }
+
+
 
 @app.route("/")
 def home():
